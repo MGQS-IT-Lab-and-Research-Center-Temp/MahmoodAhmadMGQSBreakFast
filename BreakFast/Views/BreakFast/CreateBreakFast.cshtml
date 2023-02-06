@@ -1,0 +1,44 @@
+﻿@model BreakFast.Models.CreateBreakfastViewModel
+@{
+	ViewData["Title"] = "BreakFast List";
+}
+<section class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+				<form asp-action="Create">
+					<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+					<input type="hidden" asp-for="Id" />
+					<div class="form-group"> 
+						<label asp-for="Name" class="control-label"></label>
+						<input asp-for="Name" class="form-control" required />
+						<span asp-validation-for="Name" c lass="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label asp-for="StartTime" class="control-label"></label>
+						<input asp-for="StartTime" class="form-control" required />
+						<span asp-validation-for="StartTime" class="text-danger"></span>
+					</div>
+
+					<div class="form-group">
+						<label asp-for="EndTime" class="control-label"></label>
+						<input asp-for="EndTime" class="form-control" required />
+						<span asp-validation-for="EndTime" class="text-danger"></span>  
+					</div>
+					<br />
+					<div class="form-row">
+						<div class="kt-form__actions">
+							<button class="btn btn-success"
+									type="submit">
+								Create
+							</button>
+							<a class="btn btn-primary" asp-action="ViewBreakFast">Return to BreakFast List</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+</section>

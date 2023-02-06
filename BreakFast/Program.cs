@@ -1,7 +1,18 @@
+using BreakFast.DataContext;
+using BreakFast.Implementation;
+using BreakFast.Interface;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
+    builder.Configuration.GetConnectionString("DefaultConnection")
+    ));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<IBreakFastService, BreakFastService>();
+
+builder.Services.AddTransient<IBreakfastRepository, BreakFastRepository>();
 
 var app = builder.Build();
 

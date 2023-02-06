@@ -1,0 +1,50 @@
+﻿@model BreakFast.Models.BreakFastViewModel
+@{
+	ViewData["Title"] = "Student List";
+}
+<section class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">
+							<i class="fas fa-text-width"></i>
+							BreakFast Detail
+						</h3>
+					</div>
+					<div class="card-body">
+						<dl class="row">
+							<dt class="col-sm-4">BreakFast Name</dt>
+							<dd class="col-sm-8">@Model.Name</dd>
+							<dt class="col-sm-4">StartTime</dt>
+							<dd class="col-sm-8">@Model.EndTime</dd>
+							<dt class="col-sm-4">Date Created</dt>
+							<dd class="col-sm-8">@Model.DateCreated</dd>
+							<dt class="col-sm-4">Created By</dt>
+							<dd class="col-sm-8">@Model.Createdby</dd>
+							<dt class="col-sm-4">Modified Date</dt>
+							<dd class="col-sm-8">@Model.ModifiedDate</dd>
+							<dt class="col-sm-4">Modified By</dt>
+
+						</dl>
+
+						<div class="kt-form__actions">
+							<a class="btn btn-success" asp-action="EditBreakFast" asp-route-id="@Model.Id"> <i class="bi bi-pencil-square"></i>Edit BreakFast</a>
+							&nbsp;
+							<a class="btn btn-primary" asp-action="ViewBreakFast">Return to BreakFast List</a>
+							<hr>
+							<form asp-action="DeleteBreakfast" asp-route-id="@Model.Id">
+								<button class="btn btn-success"
+										type="submit">
+									<i class="bi bi-trash-fill"></i>
+									Delete
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
